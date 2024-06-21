@@ -7,8 +7,7 @@ export default function index() {
   return (
     <Layout>
       <div className='px-20 py-10'>
-
-        <h3 className='font-bold text-xl text-red-600 my-4'>Recetas</h3>
+        <h3 className='font-bold text-xl text-red-600 my-4'>Meals</h3>
         <MealsCategories />
         <br />
         <Meals />
