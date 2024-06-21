@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Meal } from "../utils/types/meal";
+import useStore from "../store";
 
 interface MealDetailProps {
   id: string;
@@ -9,11 +10,11 @@ interface MealDetailProps {
 export default function MealDetail({ id, setVisible }: MealDetailProps) {
   const [details, setDetails] = useState<Meal>();
   const [ingredients, setIngredients] = useState<string[]>([]);
+  const mealApi = useStore((state) => state.mealApi);
+
   const getDetails = async () => {
     try {
-      const response = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
-      );
+      const response = await fetch(`${mealApi}/lookup.php?i=${id}`);
       const data = await response.json();
       if (Array.isArray(data.meals)) setDetails(data.meals[0]);
       /* Format ingredients */
