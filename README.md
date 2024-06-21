@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## El socio digital Assessment
+Project developed with Nextjs (Typescript) and Tailwind
+
+### Features
+
+* List of Categories
+* Filter by Query or text (pressing Enter to make the query)
+* Pagination (10 elements max by page)
+* Get Meals by Category
+* See ingredients and details for each one
+* Link to the source or youtube video
+
+![image info](https://i.imgur.com/ttYsIRq.png?3)
 
 ## Getting Started
 
