@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Category } from "../utils/types/category";
 import Image from "next/image";
 import useStore from "../store";
+import MealSearch from "./MealSearch";
 
 export default function MealsCategories() {
   const [categories, setCategories] = useState<Category[]>([]);
   const selectCategory = useStore((state) => state.selectCategory);
   const selectedCategory = useStore((state) => state.selectedCategory);
-  const setMealQuery = useStore((state) => state.setMealQuery);
+  const mealApi = useStore((state) => state.mealApi);
 
   /**
    * Insert the all category object
@@ -31,18 +32,12 @@ export default function MealsCategories() {
   };
   setAllCategory();
 
-  const handleQueryChange = (event: any) => {
-    if (event.key == "Enter") setMealQuery(event.target.value);
-  };
-
   /**
    * Get the categories Data
    */
   const getCategories = async () => {
     try {
-      const response = await fetch(
-        "https://themealdb.com/api/json/v1/1/categories.php"
-      );
+      const response = await fetch(`${mealApi}/categories.php`);
       const data = await response.json();
       if (Array.isArray(data.categories)) setCategories(data.categories);
     } catch (error) {
@@ -57,12 +52,7 @@ export default function MealsCategories() {
   return (
     <>
       {/* Search for name, use enter to make de query search */}
-      <input
-        type="text"
-        placeholder="Search..."
-        className="bg-gray-100 px-2 py-1 rounded absolute top-[10vh] lg:top-[20vh] right-10 md:right-20 lg:right-[6vw] border"
-        onKeyUp={(e) => handleQueryChange(e)}
-      />
+      <MealSearch />
       {/* Categories */}
       <div className="grid grid-cols-2 md:flex lg:flex gap-2 w-full flex-wrap">
         {categories.map((category) => (

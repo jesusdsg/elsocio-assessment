@@ -13,6 +13,7 @@ export default function Meals() {
   const selectedCategory = useStore((state) => state.selectedCategory);
   const mealQuery = useStore((state) => state.mealQuery);
   const [showDetail, setShowDetail] = useState<boolean>(false);
+  const mealApi = useStore((state) => state.mealApi);
   /**
    * Get the meals
    */
@@ -20,18 +21,14 @@ export default function Meals() {
     try {
       let response: Response | null = null;
       if (!selectedCategory || selectedCategory.idCategory == "0") {
-        response = await fetch(
-          "https://themealdb.com/api/json/v1/1/search.php?f=b"
-        );
+        response = await fetch(`${mealApi}/search.php?f=b`);
       } else {
         response = await fetch(
-          `https://themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory.strCategory}`
+          `${mealApi}/filter.php?c=${selectedCategory.strCategory}`
         );
       }
       if (mealQuery != "")
-        response = await fetch(
-          `https://themealdb.com/api/json/v1/1/search.php?s=${mealQuery}`
-        );
+        response = await fetch(`${mealApi}/search.php?s=${mealQuery}`);
       const data = await response?.json();
       if (Array.isArray(data.meals)) {
         setMeals(data.meals);

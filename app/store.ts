@@ -5,6 +5,7 @@ import { Category } from "./utils/types/category";
 interface State {
   categories: Category[];
   selectedCategory: Category | null;
+  mealApi: string;
   mealQuery: string;
   setCategories: (categories: Category[]) => void;
   selectCategory: (category: Category) => void;
@@ -14,6 +15,7 @@ interface State {
 const useStore = create<State>((set) => ({
   categories: [],
   selectedCategory: null,
+  mealApi: "https://themealdb.com/api/json/v1/1",
   mealQuery: "",
   setCategories: (categories) => set({ categories }),
   selectCategory: (category) => set({ selectedCategory: category }),
