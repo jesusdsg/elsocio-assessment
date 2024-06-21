@@ -2,6 +2,11 @@
   "name": "elsocio-assessment",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Jesus Salcedo",
+    "email": "devjesg@gmail.com",
+    "url": "https://github.com/jesusdsg/"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

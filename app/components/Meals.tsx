@@ -11,6 +11,7 @@ export default function Meals() {
   const [totalPages, setTotalPages] = useState(1);
   const [currentMealId, setCurrentMealId] = useState("");
   const selectedCategory = useStore((state) => state.selectedCategory);
+  const mealQuery = useStore((state) => state.mealQuery);
   const [showDetail, setShowDetail] = useState<boolean>(false);
   /**
    * Get the meals
@@ -27,6 +28,10 @@ export default function Meals() {
           `https://themealdb.com/api/json/v1/1/filter.php?c=${selectedCategory.strCategory}`
         );
       }
+      if (mealQuery != "")
+        response = await fetch(
+          `https://themealdb.com/api/json/v1/1/search.php?s=${mealQuery}`
+        );
       const data = await response?.json();
       if (Array.isArray(data.meals)) {
         setMeals(data.meals);
@@ -126,7 +131,8 @@ export default function Meals() {
 
   useEffect(() => {
     getMeals();
-  }, [selectedCategory]);
+    console.log("Meal ", mealQuery);
+  }, [selectedCategory, mealQuery]);
 
   return (
     <div>
