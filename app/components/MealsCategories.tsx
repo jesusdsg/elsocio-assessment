@@ -60,7 +60,7 @@ export default function MealsCategories() {
       <input
         type="text"
         placeholder="Search..."
-        className="bg-gray-100 px-2 py-1 rounded absolute top-[10vh] lg:top-[20vh] right-10 lg:right-[6vw] border"
+        className="bg-gray-100 px-2 py-1 rounded absolute top-[10vh] lg:top-[20vh] right-10 md:right-20 lg:right-[6vw] border"
         onKeyUp={(e) => handleQueryChange(e)}
       />
       {/* Categories */}
