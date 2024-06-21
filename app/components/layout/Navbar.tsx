@@ -15,12 +15,12 @@ export default function Navbar() {
 			</button>
 		</div>
 		<ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6 gap-10">
-			<li><a className="text-sm text-gray-600 hover:text-gray-500 hover:border-b-4 hover:border-orange-600 pb-6" href="#">Home</a></li>
-			<li><a className="text-sm text-gray-400 hover:text-gray-500 hover:border-b-4 hover:border-orange-600 pb-6" href="#">Nosotros</a></li>
+			<li><a className="text-sm text-gray-600 hover:text-gray-500 border-b-4 border-orange-600 pb-6" href="#">Home</a></li>
+			<li><a className="text-sm text-gray-400 hover:text-gray-500 hover:border-b-4 hover:border-orange-600 pb-6" href="#">About us</a></li>
             <li><a className="text-sm text-gray-400 hover:text-gray-500 hover:border-b-4 hover:border-orange-600 pb-6" href="#">Videos</a></li>
 		</ul>
-		<a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Iniciar sesión</a>
-		<a className="hidden lg:inline-block py-2 px-6 bg-orange-500 hover:bg-orange-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Registrarse</a>
+		<a className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Sign in</a>
+		<a className="hidden lg:inline-block py-2 px-6 bg-orange-500 hover:bg-orange-600 text-sm text-white font-bold rounded-xl transition duration-200" href="#">Sign up</a>
 	</nav>
   )
 }
